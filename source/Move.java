@@ -1,4 +1,5 @@
 package source;
+import java.util.ArrayList;
 
 public class Move{
 
@@ -12,41 +13,14 @@ public Move(Modele etat, Integer element, String dir){
   this.dir = dir;
 }
 
-public void Collision(){
-
-  for (int i = 0; i < m.getN(); i++){
-    for (int j = 0; j < m.getM(); j++){
-      //recherche du zéro dans la m.getGrille()
-
-      if (m.getGrille()[i][j] == this.element){
-        /*
-        if (m.getGrille()[i+1][j] == 0 && m.getGrille()[i+1][j] != null){
-          m.getGrille()[i+1][j] = n;
-          m.getGrille()[i][j] = 0;
-        }
-
-        if (m.getGrille()[i-1][j] ==0 && m.getGrille()[i-1][j] != null){
-          m.getGrille()[i-1][j] = n;
-          m.getGrille()[i][j] = 0;
-        }
-
-        if (m.getGrille()[i][j-1] == 0 && m.getGrille()[i][j-1] != null){
-          m.getGrille()[i][j-1] = n;
-          m.getGrille()[i][j] = 0;
-
-        }
-*/
-        if (m.getGrille()[i][j+1] == 0 && m.getGrille()[i][j+1] != null){
-          System.out.println(i);
-          m.getGrille()[i][j] = 0;
-          System.out.println(j+1);
-          m.getGrille()[i][j+1] = this.element;
-        }
-      else continue;
-        }
-      }
-    }
-  }
+//TODO
+//public void mouvement(){
+	
+	
+	
+	
+	
+//}
 
 public void afficheEtat(){
   for (int i =0; i< m.getN(); i++){
@@ -56,4 +30,34 @@ public void afficheEtat(){
   }
 }
 
+private boolean valideDonnee(int xTab, int yTab) {
+        if(xTab<0 || xTab>=m.getGrille().length) return false;
+        return !(yTab<0 || yTab>=m.getGrille()[0].length);
+    }
+
+public ArrayList<Integer> Voisin(int xTab, int yTab) {
+		ArrayList<Integer> lis = new ArrayList<Integer>();
+        for(int y=yTab-1; y<=yTab+1; y++){
+            for(int x=xTab-1; x<=xTab+1; x++){
+				// fonction logique pour récuperer les voisins POSSIBLES avec un repère orthonormé.
+                if((x!=xTab || y!=yTab) && (x==xTab-1 && y==yTab) || (x==xTab+1 && y==yTab) || (x==xTab && y==yTab-1) || (x==xTab && y==yTab+1))
+                    if (afficheDonnee(x,y) != -1){
+                    lis.add(afficheDonnee(x,y));
+					}
+    }}
+    return lis;
+    }
+     
+    private Integer afficheDonnee(int xTab, int yTab) {
+        if(valideDonnee(xTab, yTab)){
+            return m.getGrille()[xTab][yTab];
+		}
+		return -1;
+    }
+    
+    public void toStringVoisin(ArrayList<Integer> liste){
+		for (int i =0; i < liste.size(); i++){
+			System.out.println(liste.get(i));
+			}
+		}
 }
