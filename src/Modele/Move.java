@@ -1,26 +1,24 @@
 package src.Modele;
 import java.util.ArrayList;
 
-public class Move{
+public class Move extends AbstractModeleEcoutable{
 
 private Grille m;
-private Integer element;
 
-public Move(Grille etat, Integer element){
+public Move(Grille etat){
   this.m = etat;
-  this.element = element;
-  this.Mouvement();
 }
 
-public void Mouvement(){
+public void Mouvement(Integer element){
 
     for (int i = 0; i < m.getN(); i++) {
         for (int j = 0; j < m.getM(); j++) {
             if (m.getGrille()[i][j] == 0) {
                 ArrayList<Integer> lis = Voisin(i, j);
-                if (lis.contains(this.element)){
-                    m.getGrille()[i][j] = this.element;
-                    }
+                if (lis.contains(element)){
+                    m.getGrille()[i][j] = element;
+                    fireChangement();
+                }
                 }
             }
         }
