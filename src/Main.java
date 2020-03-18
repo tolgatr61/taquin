@@ -6,11 +6,11 @@ public class Main{
 public static void main(String[] args) {
 
     Grille m = new Grille(3,3);
-    m.afficheGrille();
-    Move mo = new Move(m, 4);
-    m.setValue(0, 1,1);
-    mo.Mouvement();
-    m.afficheGrille();
+    Move mo = new Move(m);
+
+    Play play = new Play(m, mo);
+    System.out.println(play.isFinished());
+    play.afficheGrille();
 
 }
 }
