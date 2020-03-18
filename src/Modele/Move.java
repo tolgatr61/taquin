@@ -1,26 +1,30 @@
-package source;
+package src.Modele;
 import java.util.ArrayList;
 
 public class Move{
 
-private Modele m;
-private String dir;
+private Grille m;
 private Integer element;
 
-public Move(Modele etat, Integer element, String dir){
+public Move(Grille etat, Integer element){
   this.m = etat;
   this.element = element;
-  this.dir = dir;
+  this.Mouvement();
 }
 
-//TODO
-//public void mouvement(){
-	
-	
-	
-	
-	
-//}
+public void Mouvement(){
+
+    for (int i = 0; i < m.getN(); i++) {
+        for (int j = 0; j < m.getM(); j++) {
+            if (m.getGrille()[i][j] == 0) {
+                ArrayList<Integer> lis = Voisin(i, j);
+                if (lis.contains(this.element)){
+                    m.getGrille()[i][j] = this.element;
+                    }
+                }
+            }
+        }
+    }
 
 public void afficheEtat(){
   for (int i =0; i< m.getN(); i++){

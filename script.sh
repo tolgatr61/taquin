@@ -1,4 +1,4 @@
 #usr/bin/sh
 
-javac -d "build" source/*.java
-java -cp "build" source.Main
+javac -d "build" src/*.java
+java -cp "build" src.Main

@@ -1,12 +1,12 @@
-package source;
+package src.Modele;
 
-public class Modele{
+public class Grille{
 
 private int n;
 private int m;
 private Integer[][] grille;
 
-public Modele(int n, int m){
+public Grille(int n, int m){
   this.n = n;
   this.m = m;
   this.grille = new Integer[n][m];
