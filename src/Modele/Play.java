@@ -11,6 +11,13 @@ public class Play extends AbstractModeleEcoutable{
         this.move = move;
     }
     
+    public void Hit(Integer element){
+	
+		move.Mouvement(element);
+		fireChangement();
+		
+		}
+
     public void Shuffle(){
 		
 		Random rand = new Random();

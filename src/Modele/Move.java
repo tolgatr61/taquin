@@ -17,7 +17,6 @@ public void Mouvement(Integer element){
                 ArrayList<Integer> lis = Voisin(i, j);
                 if (lis.contains(element)){
                     m.getGrille()[i][j] = element;
-                    fireChangement();
                 }
                 }
             }
